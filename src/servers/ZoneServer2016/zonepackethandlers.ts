@@ -3750,6 +3750,16 @@ export class ZonePacketHandlers {
       case "CommerceSessionRequest":
         this.commerceSessionRequest(server, client);
         break;
+      case "Grinder.ExchangeRequest":
+        server.sendData(client, "Grinder.ExchangeResponse", {
+          items: [
+            {
+              itemDefinitionId: 2787,
+              count: 1
+            }
+          ]
+        });
+        break;
       default:
         debug(packet);
         debug("Packet not implemented in packetHandlers");
