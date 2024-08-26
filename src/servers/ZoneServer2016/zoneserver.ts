@@ -6066,7 +6066,7 @@ export class ZoneServer2016 extends EventEmitter {
     });
     // if an itemdef is already in the account inventory we only update the stack count
     if (savedItem) {
-      savedItem.stackCount++;
+      savedItem.stackCount += item.stackCount;
       await server.accountInventoriesManager.updateAccountItem(
         client.loginSessionId,
         savedItem
